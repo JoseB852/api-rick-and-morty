@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Personajes from './componentes/Personajes';
+import Home from './componentes/Home';
+import { Nadvar } from './componentes/Nadvar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css'; 
+import injectContext from "./store/context"; 
+import { Footer } from './componentes/Footer';
+import  StarBackground from './componentes/StarBackground';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <StarBackground stars={300} vel={1} radius={1} />
+    <Nadvar />
+    <Routes>
+     <Route path="/" element={<Home />} />
+     <Route path="/Personajes/:id" element={<Personajes />} />
+     </Routes>
+     <Footer/>
+    </BrowserRouter> 
   );
 }
 
-export default App;
+export default injectContext(App);

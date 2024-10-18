@@ -1,38 +1,439 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+body {
+  font-family: "Nerko One", cursive;
+}
+.navbar{
+  background-color: #0f0;
+  position: relative;
+  animation: EntrarDesdeArriba .8s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes EntrarDesdeArriba{
+  from{
+      transform: translateY(-200%);
+  }
+  to{
+      transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+
+  text-align: center;
+  margin-top: 2%;
+}
+
+.card {
+
+  width: 250px;
+  height: 420px;
+  border: 1px solid black;
+  margin-top: 5%;
+  margin-left: 6%;
+  display: flex;
+  display: inline-block;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  border: 2px solid black;
+  position: relative;
+  animation: EntrarDesdeIzq .9s ease;
+  transition: all 1s;
+  z-index: 1; 
+  &:after,
+  &:before {
+      content: " ";
+      position: absolute;
+      transition: all 1s;
+      z-index: 1; 
+  }
+
+  &:after {
+      top: -1px;
+      left: -1px;
+      border-top: 3px solid #0f0;
+      border-left: 3px solid #0f0;
+      width: 0; 
+      height: 0; 
+  }
+
+  &:before {
+      bottom: -1px;
+      right: -1px;
+      border-bottom: 3px solid #0f0;
+      border-right: 3px solid #0f0;
+      width: 0; 
+      height: 0; 
+  }
+
+  &:hover {
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+
+      &:before,
+      &:after {
+          width: 100%;
+          height: 100%;
+      }
+  }
+}
+
+a{
+  position: relative; 
+  z-index: 2; 
+}
+@keyframes EntrarDesdeIzq{
+  from{
+      transform: translateX(-500%);
+  }
+  to{
+      transform: translateX(0);
+  }
+}
+
+.card:hover{
+  transform: scale(1.2);
+  transition: 1s;
+}
+
+.imagen-top {
+
+  width: 100%;
+  height: 300px;
+  
+
+}
+
+.perfil{
+  margin-top: 3%;
+  width: 305px;
+  height: 305px;
+  border: 2px solid #0f0;;
+}
+.descripcion{
+  margin-top: 10%;
+  width: 350px;
+  height: 220px;
+  border: 2px solid #0f0;;
+  
+}
+button{
+  background-color: #0f0;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.fa-solid {
+  color: #0f0;
+}
+.li{
+  color:#0f0;
+}
+.button-container {
+  position: relative; 
+  z-index: 3; 
+  display: flex; 
+  align-items: center; 
+}
+
+button {
+  background-color: #0f0;
+  border-radius: 5px;
+  border: 2px solid black;
+  position: relative; 
+  z-index: 3; 
+  cursor: pointer; 
+}
+
+.btn1{
+  background-color: #0f0;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: x-large;
+  transition: transform 0.3s ease;
+}
+
+.btn1 ::after, .btn1::before{
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  background: #0f0;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  
+}
+
+.btn1:hover{
+  transform: translate(-12px, -12px);
+}
+
+.btn1:hover::after{
+  transform: translate(6px, 6px);
+}
+
+.btn1:hover::before{
+  transform: translate(12px, 12px);
+}
+
+
+
+.image-nadvar{
+  animation: rotar 5s linear infinite;
+}
+
+@keyframes rotar{
+  from{
+    transform:rotateY(180ded);
+  }
+  to{
+    transform: rotateY(-180deg);
+  }
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 40vh;
+}
+
+.footer {
+  height: 270px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px 20px;
+  background-color: #0f0;
 }
 
-.App-link {
-  color: #61dafb;
+.logofooter {
+  width: 120px;
+  height: 120px;
+  margin-top: 15%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.derechos {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.derechos p {
+  color: black;
+  font-size: 14px;
+}
+
+.wrapper {
+  display: inline-flex;
+}
+
+.wrapper .icon {
+  font-size: x-large;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span {
+  display: block;
+  height: 40px;
+  width: 40px;
+  color: #000;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon .tooltip {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon .tooltip:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: inherit;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.wrapper .icon:hover span {
+  color: #fff;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper .facebook:hover span,
+.wrapper .facebook:hover .tooltip {
+  background: #3B5999;
+}
+
+.wrapper .twitter:hover span,
+.wrapper .twitter:hover .tooltip {
+  background: #46C1F6;
+}
+
+.wrapper .instagram:hover span,
+.wrapper .instagram:hover .tooltip {
+  background: #e1306c;
+}
+
+.wrapper .github:hover span,
+.wrapper .github:hover .tooltip {
+  background: #333;
+}
+
+.container {
+  margin-top: 10%;
+  width: 700px;
+  height: 380px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 10px 5px 5px rgb(96, 247, 31);
+  z-index: 3; 
+  position: relative;
+  background: #0f0;
+  font-weight: lighter;
+  transition: 1s box-shadow;
+ 
+}
+
+.container:hover {
+  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+}
+
+.container::before, .container:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 380px;
+  background: black; 
+  z-index: -1;
+  animation: 1s clockwise infinite;
+}
+
+.container:hover:after {
+  background: black;
+  animation: 2s counterclockwise infinite;
+}
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
   }
-  to {
-    transform: rotate(360deg);
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;    
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;    
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;    
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;    
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;    
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;    
   }
 }
